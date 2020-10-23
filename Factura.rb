@@ -9,7 +9,7 @@ class Factura
     end
     def imprimir
         "Datos para Facturar:\nCantidad = #{@cantidad}\nPrecio Unitario = #{@precioUnitario}\n 
-        \nsubtotal= #{@subtotal}\nimpuesto(#{@estado}- #{@impuestoAplicable}%)"
+        \nsubtotal= #{@subtotal}\nimpuesto(#{@estado}- #{@impuestoAplicable}%)=#{@montoImpuesto}"
 
     end
     def calcularSubtotal
@@ -18,10 +18,14 @@ class Factura
     def buscarImpuestoAplicable
         @impuestoAplicable = @impuesto.fetch(@estado)
     end
+    def calcularImpuestoAplicable
+        @montoImpuesto = (@subtotal*@impuestoAplicable/100).round(2)
+    end
 
 
 end
 factura = Factura.new(ARGV[0], ARGV[1], ARGV[2]);
 factura.calcularSubtotal
 factura.buscarImpuestoAplicable
+factura.calcularImpuestoAplicable
 puts factura.imprimir
