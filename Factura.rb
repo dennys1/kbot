@@ -44,8 +44,14 @@ class Factura
     def calcularMontoFactura
         @montoFactura = (@subtotal + @montoImpuesto - @montoDescuento).round(2)
     end
+    def imprimirSaludoBienvenida
+       puts  "******************************************\nBienvenidos al Sistema de Facturacion \n******************************************"
+
+    end
+
 end
 factura = Factura.new(ARGV[0], ARGV[1], ARGV[2]);
+factura.imprimirSaludoBienvenida
 factura.calcularSubtotal
 factura.buscarImpuestoAplicable
 factura.calcularImpuestoAplicable
