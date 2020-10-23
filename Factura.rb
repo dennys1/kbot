@@ -8,7 +8,7 @@ class Factura
        
     end
     def imprimir
-        "Datos para Facturar:\nCantidad = #{@cantidad}\nPrecio Unitario = #{@precioUnitario}\n 
+        puts "Datos para Facturar:\nCantidad = #{@cantidad}\nPrecio Unitario = #{@precioUnitario}\nestado=#{@estado} \n====================================== 
         \nsubtotal= #{@subtotal}\nimpuesto(#{@estado}- #{@impuestoAplicable}%)=#{@montoImpuesto}\ndescuento(#{@descuentoAplicable}%)=#{@montoDescuento}\nTotalFactura=#{@montoFactura}"
 
     end
@@ -61,6 +61,6 @@ factura.buscarImpuestoAplicable
 factura.calcularImpuestoAplicable
 factura.buscarDescuentoAplicable
 factura.calcularDescuentoAplicable
-factura.calcularMontoFactura
-puts factura.imprimir
+factura.calcularMontoFactura 
+factura.imprimir
 factura.imprimirDespedida
