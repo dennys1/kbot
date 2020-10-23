@@ -48,6 +48,10 @@ class Factura
        puts  "******************************************\nBienvenidos al Sistema de Facturacion \n******************************************"
 
     end
+    def imprimirDespedida
+        puts  "******************************************\nGracias por utilizar nuestro sistema!!!!!\n******************************************"
+ 
+     end
 
 end
 factura = Factura.new(ARGV[0], ARGV[1], ARGV[2]);
@@ -59,3 +63,4 @@ factura.buscarDescuentoAplicable
 factura.calcularDescuentoAplicable
 factura.calcularMontoFactura
 puts factura.imprimir
+factura.imprimirDespedida
