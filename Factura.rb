@@ -9,7 +9,7 @@ class Factura
     end
     def imprimir
         "Datos para Facturar:\nCantidad = #{@cantidad}\nPrecio Unitario = #{@precioUnitario}\n 
-        \nsubtotal= #{@subtotal}\nimpuesto(#{@estado}- #{@impuestoAplicable}%)=#{@montoImpuesto}\ndescuento(#{@descuentoAplicable}%)"
+        \nsubtotal= #{@subtotal}\nimpuesto(#{@estado}- #{@impuestoAplicable}%)=#{@montoImpuesto}\ndescuento(#{@descuentoAplicable}%)=#{@montoDescuento}\nTotalFactura=#{@montoFactura}"
 
     end
     def calcularSubtotal
@@ -38,12 +38,18 @@ class Factura
             @descuentoAplicable=0.0
         end
     end
-
-
+    def calcularDescuentoAplicable
+        @montoDescuento = (@subtotal*@descuentoAplicable/100).round(2)
+    end
+    def calcularMontoFactura
+        @montoFactura = (@subtotal + @montoImpuesto - @montoDescuento).round(2)
+    end
 end
 factura = Factura.new(ARGV[0], ARGV[1], ARGV[2]);
 factura.calcularSubtotal
 factura.buscarImpuestoAplicable
 factura.calcularImpuestoAplicable
 factura.buscarDescuentoAplicable
+factura.calcularDescuentoAplicable
+factura.calcularMontoFactura
 puts factura.imprimir
