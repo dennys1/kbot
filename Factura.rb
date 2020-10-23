@@ -32,7 +32,7 @@ class Factura
             @descuentoAplicable=  @descuento.fetch(7000)
         when 10000 .. 50000
             @descuentoAplicable=  @descuento.fetch(10000)
-        when 50000 .. 100000
+        when 50000 .. 1000000
             @descuentoAplicable=  @descuento.fetch(50000)
         else
             @descuentoAplicable=0.0
