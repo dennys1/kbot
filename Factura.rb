@@ -9,10 +9,16 @@ class Factura
     end
     def imprimir
         "Datos para Facturar:\nCantidad = #{@cantidad}\nPrecio Unitario = #{@precioUnitario}\nEstado = #{@estado}
-        \nimpuestos= #{@impuesto}\ndescuento=#{@descuento}"
+        \nsubtotal= #{@subtotal}"
 
     end
+    def calcularSubtotal
+        @subtotal = @cantidad.to_i*@precioUnitario.to_f
+    end
+
+
 
 end
 factura = Factura.new(ARGV[0], ARGV[1], ARGV[2]);
+factura.calcularSubtotal
 puts factura.imprimir
